@@ -5,7 +5,6 @@ This is the official privacy policy page for TransMov macOS application.
 ## Official URL
 
 - **GitHub Pages**: https://louischen737.github.io/transmov-website/privacy-policy.html
-- **Custom Domain**: https://yourdomain.com/privacy-policy.html (if configured)
 
 ## About TransMov
 
