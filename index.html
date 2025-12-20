@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TransMov - Video & Animation Processing for macOS</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .header-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .language-switcher {
+            text-align: right;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+        
+        .language-switcher a {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            font-size: 0.9em;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .language-switcher a.active {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .section {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #1a1a1a;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: #444;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .feature-card li {
+            margin-bottom: 5px;
+            color: #444;
+        }
+        
+        .cta {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .cta h2 {
+            color: white;
+            border: none;
+            margin-bottom: 20px;
+        }
+        
+        .cta a {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+        
+        .cta a:hover {
+            transform: scale(1.05);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            margin-top: 40px;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #e0e0e0;
+            }
+            
+            .section {
+                background: #2a2a2a;
+                color: #e0e0e0;
+            }
+            
+            h2, h3 {
+                color: #ffffff;
+            }
+            
+            p, li {
+                color: #d0d0d0;
+            }
+            
+            .feature-card {
+                background: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="language-switcher">
+        <a href="#en" onclick="showLanguage('en'); return false;" id="lang-en" class="active">English</a>
+        <a href="#zh" onclick="showLanguage('zh'); return false;" id="lang-zh">中文</a>
+    </div>
+    
+    <!-- English Version -->
+    <div id="content-en">
+        <div class="header">
+            <img src="images/app-icon.png" alt="TransMov" class="header-logo">
+            <h1>TransMov</h1>
+            <p>Professional Video & Animation Processing for macOS</p>
+        </div>
+        
+        <div class="container">
+            <div class="section">
+                <h2>About TransMov</h2>
+                <p>TransMov is your all-in-one tool for video and animation processing on macOS. Whether you're creating app animations, processing AI-generated videos, or converting between formats, TransMov provides powerful, privacy-focused tools that work entirely on your device.</p>
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li>✅ 100% local processing - Your files never leave your device</li>
+                    <li>✅ AI-powered background removal using Apple's Vision framework</li>
+                    <li>✅ Support for multiple formats (APNG, GIF, WebP, MP4, MOV)</li>
+                    <li>✅ Professional editing tools (frame browser, frame deletion/replacement)</li>
+                    <li>✅ Fast and efficient processing</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Core Modules</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>🎬 Animation Preview</h3>
+                        <p>Preview and play APNG, GIF, and WebP animation files with full playback controls.</p>
+                        <ul>
+                            <li>Play/pause controls</li>
+                            <li>Speed adjustment</li>
+                            <li>Loop mode settings</li>
+                            <li>Frame-by-frame navigation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>✂️ Video Remove BG</h3>
+                        <p>Remove backgrounds from videos using AI or chroma key technology.</p>
+                        <ul>
+                            <li>AI auto segmentation</li>
+                            <li>Chroma key removal</li>
+                            <li>Edge processing parameters</li>
+                            <li>Frame browser & editing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🔄 Video → Animation</h3>
+                        <p>Convert videos directly to animation formats without background removal.</p>
+                        <ul>
+                            <li>Direct conversion</li>
+                            <li>Interactive cropping</li>
+                            <li>Multiple export formats</li>
+                            <li>Customizable parameters</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🔄 Animation ↔ Animation</h3>
+                        <p>Convert between APNG, GIF, and WebP formats with quality control.</p>
+                        <ul>
+                            <li>Format conversion</li>
+                            <li>Size adjustment</li>
+                            <li>Quality settings</li>
+                            <li>Custom dimensions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Why Choose TransMov?</h2>
+                <h3>🔒 Privacy First</h3>
+                <p>All processing happens locally on your device. Your files never leave your computer, ensuring complete privacy and security.</p>
+                
+                <h3>⚡ Fast & Efficient</h3>
+                <p>Leverages Apple's Neural Engine for AI processing, providing fast and efficient background removal.</p>
+                
+                <h3>🎨 Professional Tools</h3>
+                <p>Frame browser, frame editing, and advanced processing parameters give you full control over your animations.</p>
+                
+                <h3>💰 Affordable Pricing</h3>
+                <p>Free core functionality with optional one-time purchase or subscription for advanced features.</p>
+            </div>
+            
+            <div class="cta">
+                <h2>Get TransMov Today</h2>
+                <p>Available on the Mac App Store</p>
+                <a href="https://apps.apple.com/app/transmov" target="_blank">Download from App Store</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>
+                <a href="privacy-policy.html">Privacy Policy</a> |
+                <a href="support.html">Support</a> |
+                <a href="terms-of-service.html">Terms of Service</a>
+            </p>
+            <p style="margin-top: 10px;">© 2025 TransMov. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <!-- Chinese Version -->
+    <div id="content-zh" style="display: none;">
+        <div class="header">
+            <img src="images/app-icon.png" alt="TransMov" class="header-logo">
+            <h1>TransMov</h1>
+            <p>专业的 macOS 视频与动画处理工具</p>
+        </div>
+        
+        <div class="container">
+            <div class="section">
+                <h2>关于 TransMov</h2>
+                <p>TransMov 是您的一站式 macOS 视频与动画处理工具。无论您是创建 App 动画、处理 AI 生成的视频，还是在格式之间转换，TransMov 都提供强大、注重隐私的工具，完全在您的设备上运行。</p>
+                <p><strong>核心特性：</strong></p>
+                <ul>
+                    <li>✅ 100% 本地处理 - 您的文件永远不会离开您的设备</li>
+                    <li>✅ 使用 Apple Vision 框架的 AI 智能背景抠图</li>
+                    <li>✅ 支持多种格式（APNG、GIF、WebP、MP4、MOV）</li>
+                    <li>✅ 专业编辑工具（帧浏览器、帧删除/替换）</li>
+                    <li>✅ 快速高效的处理</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>核心模块</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <h3>🎬 动画预览</h3>
+                        <p>预览和播放 APNG、GIF 和 WebP 动画文件，提供完整的播放控制。</p>
+                        <ul>
+                            <li>播放/暂停控制</li>
+                            <li>速度调节</li>
+                            <li>循环模式设置</li>
+                            <li>逐帧浏览</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>✂️ 视频背景抠图</h3>
+                        <p>使用 AI 或色度抠图技术从视频中移除背景。</p>
+                        <ul>
+                            <li>AI 智能分割</li>
+                            <li>色度抠图</li>
+                            <li>边缘处理参数</li>
+                            <li>帧浏览器和编辑</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🔄 视频转动画</h3>
+                        <p>直接将视频转换为动画格式，无需背景抠图。</p>
+                        <ul>
+                            <li>直接转换</li>
+                            <li>交互式裁剪</li>
+                            <li>多种导出格式</li>
+                            <li>可自定义参数</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>🔄 动画格式互转</h3>
+                        <p>在 APNG、GIF 和 WebP 格式之间转换，支持质量控制。</p>
+                        <ul>
+                            <li>格式转换</li>
+                            <li>尺寸调整</li>
+                            <li>质量设置</li>
+                            <li>自定义尺寸</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>为什么选择 TransMov？</h2>
+                <h3>🔒 隐私优先</h3>
+                <p>所有处理都在您的设备本地完成。您的文件永远不会离开您的计算机，确保完全的隐私和安全。</p>
+                
+                <h3>⚡ 快速高效</h3>
+                <p>利用 Apple Neural Engine 进行 AI 处理，提供快速高效的背景抠图。</p>
+                
+                <h3>🎨 专业工具</h3>
+                <p>帧浏览器、帧编辑和高级处理参数，让您完全控制动画。</p>
+                
+                <h3>💰 价格实惠</h3>
+                <p>核心功能免费，高级功能可选择一次性购买或订阅。</p>
+            </div>
+            
+            <div class="cta">
+                <h2>立即获取 TransMov</h2>
+                <p>在 Mac App Store 上可用</p>
+                <a href="https://apps.apple.com/app/transmov" target="_blank">从 App Store 下载</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>
+                <a href="privacy-policy.html">隐私政策</a> |
+                <a href="support.html">技术支持</a> |
+                <a href="terms-of-service.html">用户使用协议</a>
+            </p>
+            <p style="margin-top: 10px;">© 2025 TransMov. 保留所有权利。</p>
+        </div>
+    </div>
+    
+    <script>
+        function showLanguage(lang) {
+            document.getElementById('content-en').style.display = lang === 'en' ? 'block' : 'none';
+            document.getElementById('content-zh').style.display = lang === 'zh' ? 'block' : 'none';
+            
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
+        }
+        
+        window.onload = function() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            showLanguage(browserLang.startsWith('zh') ? 'zh' : 'en');
+        };
+    </script>
+</body>
+</html>
