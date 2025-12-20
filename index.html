@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TransMov - Video & Animation Processing for macOS</title>
-    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="/transmov-website/images/favicon.png">
     <style>
         * {
             margin: 0;
@@ -210,14 +210,14 @@
 </head>
 <body>
     <div class="language-switcher">
-        <a href="#en" onclick="showLanguage('en'); return false;" id="lang-en" class="active">English</a>
+        <a href="#en" onclick="showLanguage('en'); return false;" id="lang-en">English</a>
         <a href="#zh" onclick="showLanguage('zh'); return false;" id="lang-zh">中文</a>
     </div>
     
     <!-- English Version -->
-    <div id="content-en">
+    <div id="content-en" style="display: none;">
         <div class="header">
-            <img src="images/app-icon.png" alt="TransMov" class="header-logo">
+            <img src="/transmov-website/images/app-icon.png" alt="TransMov" class="header-logo" onerror="this.style.display='none'">
             <h1>TransMov</h1>
             <p>Professional Video & Animation Processing for macOS</p>
         </div>
@@ -320,7 +320,7 @@
     <!-- Chinese Version -->
     <div id="content-zh" style="display: none;">
         <div class="header">
-            <img src="images/app-icon.png" alt="TransMov" class="header-logo">
+            <img src="/transmov-website/images/app-icon.png" alt="TransMov" class="header-logo" onerror="this.style.display='none'">
             <h1>TransMov</h1>
             <p>专业的 macOS 视频与动画处理工具</p>
         </div>
@@ -431,7 +431,8 @@
         
         window.onload = function() {
             const browserLang = navigator.language || navigator.userLanguage;
-            showLanguage(browserLang.startsWith('zh') ? 'zh' : 'en');
+            const initialLang = browserLang.startsWith('zh') ? 'zh' : 'en';
+            showLanguage(initialLang);
         };
     </script>
 </body>
