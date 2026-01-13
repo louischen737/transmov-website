@@ -46,6 +46,31 @@
             opacity: 0.9;
         }
         
+        .badges-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .badge-link {
+            display: inline-block;
+            transition: transform 0.2s;
+            text-decoration: none;
+        }
+        
+        .badge-link:hover {
+            transform: scale(1.05);
+        }
+        
+        .badge-link img {
+            display: block;
+            height: 54px;
+            width: auto;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -155,36 +180,18 @@
             margin-bottom: 20px;
         }
         
-        .cta a {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
+        .cta .badges-container {
             margin-top: 20px;
-            transition: transform 0.2s;
         }
         
-        .cta a:hover {
-            transform: scale(1.05);
+        .cta a.badge-link {
+            background: transparent;
+            padding: 0;
+            margin: 0;
         }
         
-        .product-hunt-badge {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .product-hunt-badge a {
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-        
-        .product-hunt-badge a:hover {
-            transform: scale(1.05);
+        .cta .badge-link img {
+            filter: brightness(0) invert(1);
         }
         
         .footer {
@@ -219,6 +226,14 @@
             .header h1 {
                 font-size: 2em;
             }
+            
+            .badges-container {
+                gap: 10px;
+            }
+            
+            .badge-link img {
+                height: 40px;
+            }
         }
         
         @media (prefers-color-scheme: dark) {
@@ -243,10 +258,6 @@
             .feature-card {
                 background: #333;
             }
-            
-            .product-hunt-badge img {
-                filter: brightness(0.9);
-            }
         }
     </style>
 </head>
@@ -261,6 +272,14 @@
             <img src="/transmov-website/images/app-icon.png" alt="TransMov" class="header-logo" onerror="this.style.display='none'">
             <h1>TransMov</h1>
             <p>Your all-in-one video and animation converter</p>
+            <div class="badges-container">
+                <a href="https://apps.apple.com/us/app/transmov/id6756703030?mt=12" target="_blank" rel="noopener noreferrer" class="badge-link">
+                    <img src="/transmov-website/images/app-store-badge.svg" alt="Download on the Mac App Store" onerror="this.src='/transmov-website/images/app-store-badge.png'; this.onerror=null;">
+                </a>
+                <a href="https://www.producthunt.com/products/transmov-video-animation-tool?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-transmov-video-animation-tool" target="_blank" rel="noopener noreferrer" class="badge-link">
+                    <img alt="TransMov – Video & Animation Tool - Convert, edit, and export videos & animations locally on Mac | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1062242&theme=light&t=1768298589788" style="display: block;">
+                </a>
+            </div>
         </div>
         
         <div class="container">
@@ -344,9 +363,13 @@
             <div class="cta">
                 <h2>Get TransMov Today</h2>
                 <p>Available on the Mac App Store</p>
-                <a href="https://apps.apple.com/app/transmov" target="_blank">Download from App Store</a>
-                <div class="product-hunt-badge">
-                    <a href="https://www.producthunt.com/products/transmov-video-animation-tool?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-transmov-video-animation-tool" target="_blank" rel="noopener noreferrer"><img alt="TransMov – Video & Animation Tool - Convert, edit, and export videos & animations locally on Mac | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1062242&theme=light&t=1768298589788"></a>
+                <div class="badges-container">
+                    <a href="https://apps.apple.com/us/app/transmov/id6756703030?mt=12" target="_blank" rel="noopener noreferrer" class="badge-link">
+                        <img src="/transmov-website/images/app-store-badge.svg" alt="Download on the Mac App Store" onerror="this.src='/transmov-website/images/app-store-badge.png'; this.onerror=null;">
+                    </a>
+                    <a href="https://www.producthunt.com/products/transmov-video-animation-tool?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-transmov-video-animation-tool" target="_blank" rel="noopener noreferrer" class="badge-link">
+                        <img alt="TransMov – Video & Animation Tool - Convert, edit, and export videos & animations locally on Mac | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1062242&theme=light&t=1768298589788" style="display: block;">
+                    </a>
                 </div>
             </div>
         </div>
@@ -371,6 +394,14 @@
             <img src="/transmov-website/images/app-icon.png" alt="TransMov" class="header-logo" onerror="this.style.display='none'">
             <h1>TransMov</h1>
             <p>您的一站式视频与动画转换工具</p>
+            <div class="badges-container">
+                <a href="https://apps.apple.com/us/app/transmov/id6756703030?mt=12" target="_blank" rel="noopener noreferrer" class="badge-link">
+                    <img src="/transmov-website/images/app-store-badge.svg" alt="在 Mac App Store 上下载" onerror="this.src='/transmov-website/images/app-store-badge.png'; this.onerror=null;">
+                </a>
+                <a href="https://www.producthunt.com/products/transmov-video-animation-tool?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-transmov-video-animation-tool" target="_blank" rel="noopener noreferrer" class="badge-link">
+                    <img alt="TransMov – Video & Animation Tool - Convert, edit, and export videos & animations locally on Mac | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1062242&theme=light&t=1768298589788" style="display: block;">
+                </a>
+            </div>
         </div>
         
         <div class="container">
@@ -454,9 +485,13 @@
             <div class="cta">
                 <h2>立即获取 TransMov</h2>
                 <p>在 Mac App Store 上可用</p>
-                <a href="https://apps.apple.com/app/transmov" target="_blank">从 App Store 下载</a>
-                <div class="product-hunt-badge">
-                    <a href="https://www.producthunt.com/products/transmov-video-animation-tool?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-transmov-video-animation-tool" target="_blank" rel="noopener noreferrer"><img alt="TransMov – Video & Animation Tool - Convert, edit, and export videos & animations locally on Mac | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1062242&theme=light&t=1768298589788"></a>
+                <div class="badges-container">
+                    <a href="https://apps.apple.com/us/app/transmov/id6756703030?mt=12" target="_blank" rel="noopener noreferrer" class="badge-link">
+                        <img src="/transmov-website/images/app-store-badge.svg" alt="在 Mac App Store 上下载" onerror="this.src='/transmov-website/images/app-store-badge.png'; this.onerror=null;">
+                    </a>
+                    <a href="https://www.producthunt.com/products/transmov-video-animation-tool?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-transmov-video-animation-tool" target="_blank" rel="noopener noreferrer" class="badge-link">
+                        <img alt="TransMov – Video & Animation Tool - Convert, edit, and export videos & animations locally on Mac | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1062242&theme=light&t=1768298589788" style="display: block;">
+                    </a>
                 </div>
             </div>
         </div>
